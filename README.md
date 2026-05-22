@@ -13,4 +13,4 @@
 
 现在是26/5/23
 因为python还是没精通，所以目前assembler部分还基本上是ai做的我感觉按照我的编码能力也不如ai做的hah，我也没写过readme，先这样把，我感觉这个readme就当日志写就好了
-为什么我不能删掉earlystagemodules文件夹啊，我本来想把assembler和后续模块放哪里的，气死了。
+我把assembler放到branch里了，但是感觉这样做不是很标准
