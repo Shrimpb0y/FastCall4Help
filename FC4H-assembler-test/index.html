@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVE 旗舰求救工具</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <div class="header">
+          <div>
+            <p class="eyebrow">Manual Distress</p>
+            <h1>EVE 旗舰求救工具</h1>
+          </div>
+          <span id="copyStatus" class="status" aria-live="polite">待组装</span>
+        </div>
+
+        <form id="distressForm" class="form">
+          <label>
+            求救驾驶员角色名
+            <input id="characterName" name="characterName" type="text" placeholder="例如：Pilot Name" autocomplete="off" />
+          </label>
+
+          <label>
+            当前星系名
+            <input id="systemName" name="systemName" type="text" placeholder="例如：1DQ1-A" autocomplete="off" />
+          </label>
+
+          <label>
+            当前舰船
+            <input id="shipType" name="shipType" type="text" placeholder="例如：Nyx / Avatar / Rorqual" autocomplete="off" />
+          </label>
+
+          <fieldset>
+            <legend>舰船当前血量状态</legend>
+            <div class="health-grid">
+              <label>
+                护盾 %
+                <input id="shield" name="shield" type="number" min="0" max="100" step="1" placeholder="0-100" />
+              </label>
+              <label>
+                装甲 %
+                <input id="armor" name="armor" type="number" min="0" max="100" step="1" placeholder="0-100" />
+              </label>
+              <label>
+                结构 %
+                <input id="hull" name="hull" type="number" min="0" max="100" step="1" placeholder="0-100" />
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="two-col">
+            <label>
+              敌对人数
+              <input id="hostileCount" name="hostileCount" type="number" min="0" step="1" placeholder="可留空" />
+            </label>
+
+            <label>
+              敌对舰船类型
+              <input id="hostileShipTypes" name="hostileShipTypes" type="text" placeholder="例如：HIC, DIC, Loki" autocomplete="off" />
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>AI 接口预留：敌情判断原型</legend>
+            <div class="ai-grid">
+              <label>
+                前置车头
+                <input id="scoutShipType" name="scoutShipType" type="text" placeholder="例如：小船 / Force Recon / Loki" autocomplete="off" />
+              </label>
+
+              <label>
+                诱导类型
+                <select id="cynoType" name="cynoType">
+                  <option value="unknown">未知</option>
+                  <option value="black">黑诱导</option>
+                  <option value="white">白诱导</option>
+                  <option value="none">未发现诱导</option>
+                </select>
+              </label>
+
+              <label>
+                敌方主力
+                <select id="mainFleetStatus" name="mainFleetStatus">
+                  <option value="unknown">未知</option>
+                  <option value="not_arrived">尚未进场</option>
+                  <option value="arrived">已经进场</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <label>
+            补充说明
+            <textarea id="note" name="note" rows="3" placeholder="例如：已被反跳，需要支援"></textarea>
+          </label>
+
+          <div class="actions">
+            <button type="button" id="loadSampleButton" class="secondary">填入示例</button>
+            <button type="submit" class="primary">组装并复制</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-header">
+          <p class="eyebrow">Clipboard Message</p>
+          <button type="button" id="copyAgainButton" class="icon-button" title="再次复制">复制</button>
+        </div>
+        <pre id="messagePreview" class="preview">尚未生成求救信息</pre>
+      </section>
+    </main>
+
+    <script src="assembler.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
