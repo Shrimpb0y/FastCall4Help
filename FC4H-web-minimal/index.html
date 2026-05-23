@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastCall4Help</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <div class="header">
+          <div>
+            <p class="eyebrow">FastCall4Help</p>
+            <h1>轻量求救消息</h1>
+          </div>
+          <span id="copyStatus" class="status" aria-live="polite">待组装</span>
+        </div>
+
+        <form id="distressForm" class="form">
+          <fieldset>
+            <legend>本地日志输入</legend>
+            <div class="log-grid">
+              <label>
+                本地频道日志
+                <input id="localLogFile" name="localLogFile" type="file" accept=".txt" />
+              </label>
+
+              <label>
+                舰队频道日志
+                <input id="fleetLogFile" name="fleetLogFile" type="file" accept=".txt" />
+              </label>
+            </div>
+          </fieldset>
+
+          <label>
+            被抓人员 ID
+            <input id="characterName" name="characterName" type="text" placeholder="例如：Shrimp Boy" autocomplete="off" />
+          </label>
+
+          <label>
+            当前地点
+            <input id="systemName" name="systemName" type="text" placeholder="例如：AW1-2I" autocomplete="off" />
+          </label>
+
+          <label>
+            所在舰队
+            <input id="fleetName" name="fleetName" type="text" placeholder="例如：联盟救援舰队 / 未知" autocomplete="off" />
+          </label>
+
+          <div class="actions">
+            <button type="button" id="loadSampleButton" class="secondary">填入示例</button>
+            <button type="submit" class="primary">一键求救</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-header">
+          <p class="eyebrow">Clipboard Message</p>
+          <button type="button" id="copyAgainButton" class="icon-button" title="再次复制">复制</button>
+        </div>
+        <pre id="messagePreview" class="preview">尚未生成求救信息</pre>
+      </section>
+    </main>
+
+    <script src="assembler.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
